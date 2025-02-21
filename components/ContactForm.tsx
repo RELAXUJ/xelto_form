@@ -119,7 +119,7 @@ export default function ContactForm({ language }: ContactFormProps) {
           <Button
             type="submit"
             disabled={isSubmitting}
-            className="bg-xelto-red hover:bg-xelto-red/90 text-white w-full md:w-auto"
+            className="bg-xelto-green hover:bg-xelto-green/90 text-white w-full md:w-auto"
           >
             {language === "en" ? "Request Free Demo" : "Požádat o demo"}
           </Button>

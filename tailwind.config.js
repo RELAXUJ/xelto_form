@@ -51,8 +51,8 @@ module.exports = {
           foreground: "hsl(var(--card-foreground))",
         },
         xelto: {
-          red: "#E31E24",
           gray: "#4A4A4A",
+          green: "#00B5B3"
         },
       },
       borderRadius: {

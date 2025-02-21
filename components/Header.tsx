@@ -25,7 +25,7 @@ export default function Header({ language }: HeaderProps) {
           />
         </div>
       </div>
-      <div className="bg-xelto-red text-white text-center py-2">
+      <div className="bg-xelto-green text-white text-center py-2">
         <p className="text-sm">
           {language === "en"
             ? "Optimizing packaging for the automotive industry."

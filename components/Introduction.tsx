@@ -8,7 +8,7 @@ export default function Introduction({ language }: IntroductionProps) {
       <h1 className="text-4xl font-bold mb-4 text-xelto-gray">
         {language === "en" 
           ? "Revolutionize Your Packaging Process" 
-          : "Revolucionizujte svůj obalový proces"}
+          : "Zefektivněte svůj obalový proces"}
       </h1>
       <p className="text-lg text-muted-foreground">
         {language === "en"

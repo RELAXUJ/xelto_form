@@ -1,6 +1,6 @@
 "use client"
 
-import { useState, useEffect } from "react"
+import { useState, useEffect, useRef } from "react"
 import Image from "next/image"
 
 interface MockupSlideshowProps {
@@ -9,6 +9,9 @@ interface MockupSlideshowProps {
 
 export default function MockupSlideshow({ language }: MockupSlideshowProps) {
   const [currentSlide, setCurrentSlide] = useState(0)
+  const lastInteractionTime = useRef(Date.now())
+  const INTERACTION_DELAY = 15000 // 15 seconds
+  const AUTO_SLIDE_INTERVAL = 5000 // 5 seconds
 
   const slides = [
     { src: "/images/figma/Add new project - step 1.png", alt: "Add new project - Step 1" },
@@ -25,17 +28,27 @@ export default function MockupSlideshow({ language }: MockupSlideshowProps) {
     { src: "/images/figma/Pallets.png", alt: "Pallets" },
     { src: "/images/figma/Project - details-1.png", alt: "Project Details" },
     { src: "/images/figma/Projects - delete modal.png", alt: "Projects Delete Modal" },
-    { src: "/images/figma/Projects.png", alt: "Projects Overview" },
-    { src: "/images/figma/Summary & Budget (step 5 & 6).png", alt: "Summary & Budget" }
+    { src: "/images/figma/Projects.png", alt: "Projects Overview" }
   ]
 
   useEffect(() => {
     const timer = setInterval(() => {
-      setCurrentSlide((prev) => (prev + 1) % slides.length)
-    }, 5000) // Change slide every 5 seconds
+      const now = Date.now()
+      const timeSinceLastInteraction = now - lastInteractionTime.current
+
+      // Only auto-advance if no interaction in the last 15 seconds
+      if (timeSinceLastInteraction >= INTERACTION_DELAY) {
+        setCurrentSlide((prev) => (prev + 1) % slides.length)
+      }
+    }, AUTO_SLIDE_INTERVAL)
 
     return () => clearInterval(timer)
   }, [slides.length])
+
+  const handleManualSlideChange = (newSlide: number) => {
+    lastInteractionTime.current = Date.now()
+    setCurrentSlide(newSlide)
+  }
 
   return (
     <section className="mt-16 mb-12">
@@ -63,7 +76,7 @@ export default function MockupSlideshow({ language }: MockupSlideshowProps) {
           {slides.map((_, index) => (
             <button
               key={index}
-              onClick={() => setCurrentSlide(index)}
+              onClick={() => handleManualSlideChange(index)}
               className={`w-2 h-2 rounded-full transition-all duration-300 ${
                 currentSlide === index 
                   ? "bg-white w-4" 
@@ -76,7 +89,7 @@ export default function MockupSlideshow({ language }: MockupSlideshowProps) {
 
         {/* Navigation Arrows */}
         <button
-          onClick={() => setCurrentSlide((prev) => (prev - 1 + slides.length) % slides.length)}
+          onClick={() => handleManualSlideChange((currentSlide - 1 + slides.length) % slides.length)}
           className="absolute left-4 top-1/2 -translate-y-1/2 p-2 rounded-full bg-black/20 hover:bg-black/30 transition-colors"
           aria-label="Previous slide"
         >
@@ -85,7 +98,7 @@ export default function MockupSlideshow({ language }: MockupSlideshowProps) {
           </svg>
         </button>
         <button
-          onClick={() => setCurrentSlide((prev) => (prev + 1) % slides.length)}
+          onClick={() => handleManualSlideChange((currentSlide + 1) % slides.length)}
           className="absolute right-4 top-1/2 -translate-y-1/2 p-2 rounded-full bg-black/20 hover:bg-black/30 transition-colors"
           aria-label="Next slide"
         >

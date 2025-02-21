@@ -1,12 +1,11 @@
 "use client"
 
-import type React, { FormEvent } from "react"
-
+import type { FormEvent, ChangeEvent } from "react"
 import { useState } from "react"
-import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
-import { Textarea } from "@/components/ui/textarea"
-import { Checkbox } from "@/components/ui/checkbox"
+import { Button } from "./ui/button"
+import { Input } from "./ui/input"
+import { Textarea } from "./ui/textarea"
+import { Checkbox } from "./ui/checkbox"
 
 interface ContactFormProps {
   language: "en" | "cs"

@@ -19,7 +19,7 @@ export default function MockupSlideshow({ language }: MockupSlideshowProps) {
     { src: "/images/figma/Add new project - step 3 - expanded.png", alt: "Add new project - Step 3 Expanded" },
     { src: "/images/figma/Add new project - step 3.png", alt: "Add new project - Step 3" },
     { src: "/images/figma/Add new project - step 4.png", alt: "Add new project - Step 4" },
-    { src: "/images/figma/Add new project - step 5 right side.png", alt: "Add new project - Step 5 Right Side" },
+    { src: "/images/figma/Add new project - step 5 ridgt side.png", alt: "Add new project - Step 5 Right Side" },
     { src: "/images/figma/Add new project - step 5.png", alt: "Add new project - Step 5" },
     { src: "/images/figma/Add new project - step 6.png", alt: "Add new project - Step 6" },
     { src: "/images/figma/Login.png", alt: "Login Screen" },

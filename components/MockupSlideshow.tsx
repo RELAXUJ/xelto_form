@@ -45,15 +45,16 @@ export default function MockupSlideshow({ language }: MockupSlideshowProps) {
         {language === "en" ? "Application Preview" : "Náhled aplikace"}
       </h2>
 
-      <div className="relative w-full max-w-4xl mx-auto aspect-[16/9] rounded-lg overflow-hidden shadow-2xl">
+      <div className="relative w-full max-w-5xl mx-auto rounded-lg overflow-hidden shadow-2xl bg-white">
         {/* Main Slide */}
-        <div className="relative w-full h-full">
+        <div className="relative w-full" style={{ minHeight: '600px' }}>
           <Image
             src={slides[currentSlide].src}
             alt={slides[currentSlide].alt}
             fill
-            className="object-cover transition-opacity duration-500"
-            quality={90}
+            className="object-contain transition-opacity duration-500"
+            quality={100}
+            priority
           />
         </div>
 

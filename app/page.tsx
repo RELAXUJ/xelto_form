@@ -20,7 +20,7 @@ export default function Home() {
           <ContactForm language={language} />
         </div>
       </main>
-      <Footer language={language} />
+      <Footer />
     </div>
   )
 }

@@ -1,11 +1,7 @@
 import Image from "next/image"
 import Link from "next/link"
 
-interface FooterProps {
-  language: "en" | "cs"
-}
-
-export default function Footer({ language }: FooterProps) {
+export default function Footer() {
   return (
     <footer className="bg-white py-8 shadow-[0_-2px_4px_rgba(0,0,0,0.1)]">
       <div className="container mx-auto px-4">

@@ -16,7 +16,7 @@ export default function Footer() {
             />
           </Link>
           <span className="text-gray-300 text-2xl font-light">/</span>
-          <Link href="https://xeltodigital.cz/" target="_blank" rel="noopener noreferrer">
+          <Link href="https://xeltodigital.cz/en/" target="_blank" rel="noopener noreferrer">
             <Image
               src="/images/logo-XELTO-DIGITAL.jpg"
               alt="Xelto Digital Logo"

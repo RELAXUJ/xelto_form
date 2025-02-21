@@ -51,16 +51,16 @@ export default function MockupSlideshow({ language }: MockupSlideshowProps) {
   }
 
   return (
-    <section className="mt-16 mb-12">
-      <div className="w-full h-px bg-gray-200 mb-12" /> {/* Separator */}
+    <section className="mt-8 md:mt-16 mb-12">
+      <div className="w-full h-px bg-gray-200 mb-6 md:mb-12" /> {/* Separator with responsive margins */}
       
-      <h2 className="text-2xl font-bold mb-8 text-center text-xelto-gray">
+      <h2 className="text-2xl font-bold mb-4 md:mb-8 text-center text-xelto-gray">
         {language === "en" ? "Application Preview" : "Náhled aplikace"}
       </h2>
 
       <div className="relative w-full max-w-5xl mx-auto rounded-lg overflow-hidden shadow-2xl bg-white">
         {/* Main Slide */}
-        <div className="relative w-full" style={{ minHeight: '600px' }}>
+        <div className="relative w-full" style={{ minHeight: '300px', '@media (min-width: 768px)': { minHeight: '600px' } }}>
           <Image
             src={slides[currentSlide].src}
             alt={slides[currentSlide].alt}

@@ -60,7 +60,7 @@ export default function MockupSlideshow({ language }: MockupSlideshowProps) {
 
       <div className="relative w-full max-w-5xl mx-auto rounded-lg overflow-hidden shadow-2xl bg-white">
         {/* Main Slide */}
-        <div className="relative w-full" style={{ minHeight: '300px', '@media (min-width: 768px)': { minHeight: '600px' } }}>
+        <div className="relative w-full h-[300px] md:h-[600px]">
           <Image
             src={slides[currentSlide].src}
             alt={slides[currentSlide].alt}

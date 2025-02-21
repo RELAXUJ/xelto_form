@@ -5,6 +5,7 @@ import Header from "@/components/Header"
 import LanguageSwitcher from "@/components/LanguageSwitcher"
 import Introduction from "@/components/Introduction"
 import ContactForm from "@/components/ContactForm"
+import MockupSlideshow from "@/components/MockupSlideshow"
 import Footer from "@/components/Footer"
 
 export default function Home() {
@@ -18,6 +19,7 @@ export default function Home() {
           <LanguageSwitcher language={language} setLanguage={setLanguage} />
           <Introduction language={language} />
           <ContactForm language={language} />
+          <MockupSlideshow language={language} />
         </div>
       </main>
       <Footer />

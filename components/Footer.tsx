@@ -1,4 +1,5 @@
-import { Mail, Phone } from "lucide-react"
+import Image from "next/image"
+import Link from "next/link"
 
 interface FooterProps {
   language: "en" | "cs"
@@ -6,19 +7,28 @@ interface FooterProps {
 
 export default function Footer({ language }: FooterProps) {
   return (
-    <footer className="bg-xelto-gray text-white py-8">
+    <footer className="bg-white py-8 shadow-[0_-2px_4px_rgba(0,0,0,0.1)]">
       <div className="container mx-auto px-4">
-        <h2 className="text-2xl font-bold mb-4 text-white/90">
-          {language === "en" ? "Contact Information" : "Kontaktní informace"}
-        </h2>
-        <p className="mb-2 text-white/80">Optipacker & Xelto Digital Czechia</p>
-        <div className="flex items-center mb-2 text-white/80">
-          <Mail className="mr-2" size={18} />
-          <span>Email: info@optipacker.com</span>
-        </div>
-        <div className="flex items-center text-white/80">
-          <Phone className="mr-2" size={18} />
-          <span>Phone: +420 123 456 789</span>
+        <div className="flex justify-center items-center space-x-6">
+          <Link href="https://optipacker.com/" target="_blank" rel="noopener noreferrer">
+            <Image 
+              src="/images/logo_opti.png" 
+              alt="Optipacker Logo" 
+              width={150} 
+              height={40}
+              className="hover:opacity-80 transition-opacity"
+            />
+          </Link>
+          <span className="text-gray-300 text-2xl font-light">/</span>
+          <Link href="https://xeltodigital.cz/" target="_blank" rel="noopener noreferrer">
+            <Image
+              src="/images/logo-XELTO-DIGITAL.jpg"
+              alt="Xelto Digital Logo"
+              width={120}
+              height={40}
+              className="hover:opacity-80 transition-opacity"
+            />
+          </Link>
         </div>
       </div>
     </footer>
